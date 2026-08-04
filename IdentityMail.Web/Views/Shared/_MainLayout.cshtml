@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<!DOCTYPE html>
+<html lang="en" style="">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <style>
+        @@layer base {
+            html, body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main > :first-child {
+                margin-top: 0 !important;
+            }
+
+            main > :last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }</style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"secondary":"#c0c7d3","primary":"#adc6ff","on-error-container":"#ffdad6","secondary-fixed":"#dce3f0","on-error":"#690005","inverse-primary":"#005ac2","primary-fixed-dim":"#adc6ff","on-surface":"#e1e2ec","on-primary":"#002e6a","surface-container":"#1d2027","on-surface-variant":"#c2c6d6","on-primary-fixed-variant":"#004395","secondary-container":"#404752","on-secondary-fixed-variant":"#404752","tertiary-fixed":"#ffdcc6","tertiary":"#ffb786","error-container":"#93000a","surface-variant":"#32353c","tertiary-container":"#df7412","on-secondary-container":"#afb5c2","background":"#10131a","on-secondary":"#2a313b","surface-container-low":"#191b23","surface-tint":"#adc6ff","on-background":"#e1e2ec","tertiary-fixed-dim":"#ffb786","surface":"#10131a","inverse-surface":"#e1e2ec","inverse-on-surface":"#2e3038","on-secondary-fixed":"#151c25","on-tertiary-fixed":"#311400","on-tertiary-container":"#461f00","surface-container-lowest":"#0b0e15","surface-dim":"#10131a","on-primary-container":"#00285d","surface-bright":"#363941","surface-container-high":"#272a31","secondary-fixed-dim":"#c0c7d3","on-primary-fixed":"#001a42","surface-container-highest":"#32353c","outline-variant":"#424754","outline":"#8c909f","primary-container":"#4d8eff","error":"#ffb4ab","on-tertiary-fixed-variant":"#723600","primary-fixed":"#d8e2ff","on-tertiary":"#502400"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xxl":"64px","base":"4px","xs":"4px","sm":"8px","gutter":"20px","xl":"40px","md":"16px","margin":"32px","lg":"24px"},"fontFamily":{"label-xs":["JetBrains Mono"],"headline-md":["Geist"],"body-md":["Geist"],"headline-lg-mobile":["Geist"],"headline-lg":["Geist"],"display-lg":["Geist"],"label-sm":["JetBrains Mono"],"body-lg":["Geist"]},"fontSize":{"label-xs":["10px",{"lineHeight":"12px","fontWeight":"500"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"56px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"500"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}]}}}}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+</head>
+<body class="bg-surface font-body-md text-on-surface">
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("_DefaultSidebar")
+    <div class="pl-72">
+        <!-- Header -->
+        @await Component.InvokeAsync("_DefaultHeader")
+        <!-- Main Content Area --><main class="pt-20 min-h-screen bg-background">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>

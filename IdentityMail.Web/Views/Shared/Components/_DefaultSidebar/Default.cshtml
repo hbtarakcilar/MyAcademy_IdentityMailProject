@@ -1,0 +1,44 @@
+﻿@*
+    Default Sidebar
+*@
+
+<aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col shadow-xl">
+    <br />
+    <a href="#" class="px-lg mb-xl flex items-center gap-md cursor-pointer hover:bg-surface-bright/50 transition-all duration-300 rounded-lg py-sm mx-md">
+        <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+            @if (!string.IsNullOrWhiteSpace(ViewBag.ProfileImage))
+            {
+                <img src="@ViewBag.ProfileImage"
+                     alt="@ViewBag.FullName"
+                     class="w-full h-full object-cover" />
+            }
+            else
+            {
+                <div class="w-full h-full bg-surface-variant flex items-center justify-center">
+                    <span class="material-symbols-outlined text-on-surface-variant">
+                        person
+                    </span>
+                </div>
+            }
+        </div>
+        <div class="flex flex-col">
+            <span class="font-body-lg text-body-lg text-on-surface">@ViewBag.Fullname</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Çevrimiçi</span>
+        </div>
+    </a>
+    <!-- Sidebar Navigation -->
+    <nav class="flex-1 px-md flex flex-col gap-base overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg shadow-lg shadow-primary-container/20">
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" ><span class="material-symbols-outlined mr-md">edit</span>Yeni Mesaj</a>
+        <a asp-controller="Message" asp-action="Index" class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" ><span class="material-symbols-outlined mr-md">inbox</span>Gelen Kutusu</a>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">send</span>Gönderilenler</a>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">drafts</span>Taslaklar</a>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">star</span>Önemli</a>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">delete</span>Arşiv</a>
+        <div class="mt-xl mb-xs px-md font-label-sm text-label-sm text-outline uppercase tracking-widest">Kategoriler</div>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">category</span>İş</a>
+        <a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-all" href="#"><span class="material-symbols-outlined mr-md">account_circle</span>Oyun</a>
+    </nav>
+    <div class="px-md pb-xl mt-auto">
+        <a asp-controller="Auth" asp-action="Logout" class="flex items-center px-md py-sm rounded-lg text-error hover:bg-error-container/20 transition-all" data-path="logout" ><span class="material-symbols-outlined mr-md">logout</span>Çıkış Yap</a>
+    </div>
+</aside>

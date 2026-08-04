@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_MainLayout";
+    ViewData["Title"] = "Ana Sayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="flex flex-col w-full h-full items-center justify-center p-xl relative overflow-hidden bg-background min-h-[calc(100vh-80px)]">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[80px] pointer-events-none"></div>
+    <div class="relative w-full max-w-2xl bg-surface-bright/40 backdrop-blur-2xl rounded-[32px] p-xxl shadow-[0_32px_64px_rgba(0,0,0,0.4)] border border-white/5 flex flex-col items-center text-center group transition-all duration-700 hover:bg-surface-bright/50">
+        <div class="w-32 h-32 rounded-full bg-surface-container-high/50 flex items-center justify-center mb-xl shadow-[inset_0_2px_10px_rgba(255,255,255,0.05)] border border-white/5 relative group-hover:scale-105 transition-transform duration-700">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <span class="material-symbols-outlined text-[64px] text-on-surface-variant font-light" style="font-variation-settings: &quot;FILL&quot; 0, &quot;wght&quot; 200;">
+                inbox
+            </span>
+        </div>
+        <h1 class="font-display-lg text-display-lg text-on-surface mb-md tracking-tight">
+            Sol Menüden Seçim Yapınız.
+        </h1>
+        <div class="flex gap-md">
+            <a asp-controller="Message" asp-action="SendMail" class="h-[48px] px-xl bg-primary text-on-primary rounded-full font-body-md text-body-md font-semibold flex items-center gap-sm hover:brightness-110 transition-all duration-300 shadow-[0_0_30px_rgba(173,198,255,0.2)] hover:shadow-[0_0_40px_rgba(173,198,255,0.4)] hover:-translate-y-1">
+                <span class="material-symbols-outlined text-[20px]">edit</span>
+                Mesaj Gönder
+            </a>
+        </div>
+    </div>
 </div>
