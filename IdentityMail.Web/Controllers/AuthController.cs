@@ -64,7 +64,7 @@ namespace IdentityMail.Web.Controllers
                 ModelState.AddModelError(string.Empty, "Bu Email sistemde kayıtlı değil.");
                 return View(loginDto);
             }
-            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
+            var result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, loginDto.RememberMe, false);
             if (!result.Succeeded)
             {
                 ModelState.AddModelError(string.Empty, "Email veya Şifre Hatalı.");
